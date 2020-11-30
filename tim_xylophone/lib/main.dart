@@ -4,62 +4,39 @@ import 'package:audioplayers/audio_cache.dart';
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
+  void playSound(int soundNumber) {
+    final player = AudioCache();
+    player.play('note$soundNumber.wav');
+  }
+
+  Expanded buildKey({Color color, int SoundNumber}) {
+    return Expanded(
+      child: FlatButton(
+          color: color,
+          onPressed: () {
+            playSound(SoundNumber);
+          },
+          child: null),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              FlatButton(
-                  color: Colors.red,
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note1.wav');
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.blue,
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note2.wav');
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.green,
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note3.wav');
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.purple.shade600,
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note4.wav');
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.purple.shade100,
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note5.wav');
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.green.shade200,
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note6.wav');
-                  },
-                  child: null),
-              FlatButton(
-                  color: Colors.black,
-                  onPressed: () {
-                    final player = AudioCache();
-                    player.play('note7.wav');
-                  },
-                  child: null),
+              buildKey(color: Colors.red, SoundNumber: 1),
+              buildKey(color: Colors.green, SoundNumber: 2),
+              buildKey(color: Colors.purple, SoundNumber: 3),
+              buildKey(color: Colors.orange, SoundNumber: 4),
+              buildKey(color: Colors.cyanAccent, SoundNumber: 5),
+              buildKey(color: Colors.teal, SoundNumber: 6),
+              buildKey(color: Colors.yellowAccent, SoundNumber: 7),
             ],
           ),
         ),
