@@ -1,2 +1,2 @@
 # Flutter-Xylophone-Tim
-![](tim_xylophone.m4v)
+![](https://github.com/Thommzy/Flutter-Xylophone-Tim/blob/main/tim-xylophone.gif)
